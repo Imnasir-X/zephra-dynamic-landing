@@ -1,0 +1,21 @@
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.vscode/
+.idea/
+
+# environment & secrets (none are used by this project)
+.env
+.env.*
+
+# dependencies / build artifacts (project is dependency-free)
+node_modules/
+dist/
+*.log
+
+# test/tooling artifacts
+.nyc_output/
+coverage/

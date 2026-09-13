@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!-- ==========================================================================
+     WAYMARK RFID — BASE LANDING PAGE  ·  SOURCE OF TRUTH
+     --------------------------------------------------------------------------
+     This page represents the CLIENT'S EXISTING SITE. It is deliberately
+     self-sufficient: delete dynamic-landing.js (or disable JavaScript) and
+     this page renders identically — that is the brief's success criterion.
+
+     The personalization layer (dynamic-landing.js) may modify ONLY the five
+     elements carrying a data-dl attribute:
+       data-dl="headline" · "description" · "cta-primary" ·
+       "benefit-heading" · "hero-visual" (toggles visibility of the four
+       pre-authored <figure data-visual="..."> blocks — nothing is injected).
+
+     Authored content that is never touched by the layer: nav, ledger,
+     read-stream, specs strip, footer.
+     ========================================================================== -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waymark — RFID Solutions for Your Business</title>
+<meta name="description" content="Waymark RFID — real-time visibility over the assets that keep your operation moving.">
+<link rel="stylesheet" href="./styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<noscript><p class="nojs">JavaScript is disabled — you are seeing the original, unpersonalized page (fail-open by design).</p></noscript>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#overview" aria-label="Waymark home">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="17" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="2"/>
+        <rect x="6.5" y="6.5" width="7" height="7" rx="1.5" fill="#E14E10"/>
+      </svg>
+      <span>WAYMARK</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#platform">PLATFORM</a><a href="#hardware">HARDWARE</a><a href="#contact">CONTACT</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#contact"><span class="btn-label">Book a demo</span><span class="arr">→</span></a>
+  </div>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="overview">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span>WAYMARK OS — RFID INFRASTRUCTURE</p>
+        <h1 class="hero-title" data-dl="headline">RFID Solutions for Your Business</h1>
+        <p class="hero-desc" data-dl="description">Real-time visibility over the assets that keep your operation moving — tagged once, tracked everywhere, from dock to floor to field.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary" data-dl="cta-primary"><span class="btn-label">Book a Demo</span><span class="arr">→</span></a>
+          <a href="#platform" class="btn btn-ghost">See the platform</a>
+        </div>
+        <p class="hero-meta">UHF RFID&nbsp;&nbsp;·&nbsp;&nbsp;READER-AGNOSTIC&nbsp;&nbsp;·&nbsp;&nbsp;WORKS ALONGSIDE YOUR EXISTING HARDWARE</p>
+      </div>
+
+      <!-- All four figures are pre-authored, approved content. The layer only
+           toggles which one is visible; it never builds markup at runtime. -->
+      <aside class="hero-visual" data-dl="hero-visual" aria-label="Product illustration">
+        <div class="marks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+        <figure class="visual" data-visual="default">
+          <svg viewBox="0 0 460 320" role="img" aria-label="RFID tag being read by a gate">
+            <defs><pattern id="pd-a" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.1" fill="#2E2A20"/></pattern></defs>
+            <rect width="460" height="320" fill="url(#pd-a)"/>
+            <text x="46" y="58" class="sv-mut" font-size="9.5">EPC-96 · 4F.2A.91.C7</text>
+            <g transform="translate(46,74)">
+              <rect width="150" height="140" rx="10" fill="#26221A" stroke="#E9E3D3" stroke-width="1.5"/>
+              <rect x="59" y="24" width="32" height="32" rx="5" fill="#E8551C"/>
+              <path d="M59 30 C 34 16 34 64 59 50" fill="none" stroke="#E9E3D3" stroke-width="1.5"/>
+              <path d="M91 30 C 116 16 116 64 91 50" fill="none" stroke="#E9E3D3" stroke-width="1.5"/>
+              <text x="24" y="90" class="sv-mut" font-size="8">WAYMARK · UHF</text>
+              <g stroke="#E9E3D3" stroke-width="2" opacity=".7">
+                <path d="M24 100 v26"/><path d="M33 100 v20"/><path d="M41 100 v26"/><path d="M52 100 v16"/>
+                <path d="M60 100 v26"/><path d="M70 100 v22"/><path d="M79 100 v26"/><path d="M90 100 v18"/>
+                <path d="M98 100 v26"/><path d="M108 100 v22"/><path d="M118 100 v26"/><path d="M127 100 v19"/>
+              </g>
+            </g>
+            <g fill="none" stroke="#E9E3D3" stroke-width="1.5">
+              <path class="arc"    d="M144 81 A40 40 0 0 1 144 147"/>
+              <path class="arc a2" d="M161 57 A70 70 0 0 1 161 171"/>
+              <path class="arc a3" d="M178 32 A100 100 0 0 1 178 196"/>
+              <path class="arc a4" d="M196 8 A130 130 0 0 1 196 221"/>
+            </g>
+            <text x="348" y="58" class="sv-mut" font-size="9.5">READ LOG — LIVE</text>
+            <g stroke="#8F8875" stroke-width="2">
+              <path d="M348 74 h64"/><path d="M348 94 h48"/>
+              <path d="M348 114 h64" stroke="#F0602A"/><path d="M348 134 h56"/>
+              <path d="M348 154 h40"/><path d="M348 174 h64" stroke="#F0602A"/><path d="M348 194 h52"/>
+            </g>
+            <text x="46" y="258" class="sv-mut" font-size="9.5">UHF 860–960 MHZ · 96-BIT EPC · GATE MESH SYNCED</text>
+          </svg>
+          <figcaption>FIG.01 — ASSET FIELD · WAYMARK OS</figcaption>
+        </figure>
+
+        <figure class="visual" data-visual="inventory" hidden>
+          <svg viewBox="0 0 460 320" role="img" aria-label="Shelves of stock being counted by a sweeping read beam">
+            <defs><pattern id="pd-b" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.1" fill="#2E2A20"/></pattern></defs>
+            <rect width="460" height="320" fill="url(#pd-b)"/>
+            <text x="40" y="46" class="sv-bone" font-size="12">AISLE-4 — CONTINUOUS COUNT</text>
+            <g fill="#26221A" stroke="#E9E3D3" stroke-width="1.5">
+              <rect x="48" y="48" width="44" height="36" rx="3"/><rect x="98" y="48" width="58" height="36" rx="3"/>
+              <rect x="162" y="48" width="40" height="36" rx="3"/><rect x="208" y="48" width="54" height="36" rx="3"/>
+              <rect x="48" y="128" width="52" height="36" rx="3"/><rect x="106" y="128" width="42" height="36" rx="3"/>
+              <rect x="154" y="128" width="64" height="36" rx="3" fill="#E8551C"/><rect x="224" y="128" width="46" height="36" rx="3"/>
+              <rect x="48" y="208" width="40" height="36" rx="3"/><rect x="94" y="208" width="56" height="36" rx="3"/>
+              <rect x="156" y="208" width="46" height="36" rx="3"/><rect x="208" y="208" width="58" height="36" rx="3"/>
+            </g>
+            <g stroke="#E9E3D3" stroke-width="1.5"><path d="M40 84 H300"/><path d="M40 164 H300"/><path d="M40 244 H300"/></g>
+            <g class="beam"><path d="M60 40 V240" stroke="#E8551C" stroke-width="6" opacity=".15"/><path d="M60 40 V240" stroke="#E8551C" stroke-width="2"/></g>
+            <path d="M316 60 V252" stroke="#34302A"/>
+            <text x="336" y="84" class="sv-mut" font-size="9.5">SKUS READ</text>
+            <text x="336" y="108" class="sv-bone" font-size="18">214</text>
+            <text x="336" y="138" class="sv-mut" font-size="9.5">DISCREPANCIES</text>
+            <text x="336" y="162" class="sv-acc" font-size="18">0</text>
+            <text x="336" y="192" class="sv-mut" font-size="9.5">LOOP TIME</text>
+            <text x="336" y="216" class="sv-bone" font-size="18">00:47</text>
+            <text x="40" y="286" class="sv-mut" font-size="9.5">FULL-AISLE PASS · NO CLIPBOARDS · LEDGER AUTO-UPDATED</text>
+          </svg>
+          <figcaption>FIG.02 — CONTINUOUS COUNT · AISLE-4</figcaption>
+        </figure>
+
+        <figure class="visual" data-visual="tools" hidden>
+          <svg viewBox="0 0 460 320" role="img" aria-label="Tool crib checkout log with a crib gate beacon">
+            <defs><pattern id="pd-c" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.1" fill="#2E2A20"/></pattern></defs>
+            <rect width="460" height="320" fill="url(#pd-c)"/>
+            <text x="40" y="50" class="sv-bone" font-size="12">TOOL CRIB — BENCH-2</text>
+            <text x="420" y="50" text-anchor="end" class="sv-mut" font-size="9.5">AUDIT: 3 MIN</text>
+            <path d="M40 62 H420" stroke="#34302A"/>
+            <rect x="40" y="82" width="10" height="10" fill="#E8551C"/>
+            <text x="62" y="92" class="sv-bone" font-size="10.5">TORQUE-WRENCH-17</text>
+            <text x="420" y="92" text-anchor="end" class="sv-mut" font-size="9.5">K.ORTIZ · OUT 09:14</text>
+            <path d="M40 110 H420" stroke="#2C2920"/>
+            <rect x="40" y="120" width="10" height="10" fill="#E8551C"/>
+            <text x="62" y="130" class="sv-bone" font-size="10.5">IMPACT-DRILL-04</text>
+            <text x="420" y="130" text-anchor="end" class="sv-mut" font-size="9.5">D.SEMA · OUT 08:52</text>
+            <path d="M40 148 H420" stroke="#2C2920"/>
+            <rect x="40" y="158" width="10" height="10" fill="none" stroke="#E9E3D3" stroke-width="1.5"/>
+            <text x="62" y="168" class="sv-bone" font-size="10.5">CAL-GAUGE-09</text>
+            <text x="420" y="168" text-anchor="end" class="sv-mut" font-size="9.5">RETURNED · 07:58</text>
+            <path d="M40 186 H420" stroke="#2C2920"/>
+            <rect x="40" y="196" width="10" height="10" fill="none" stroke="#E9E3D3" stroke-width="1.5"/>
+            <text x="62" y="206" class="sv-bone" font-size="10.5">CABLE-CUTTER-22</text>
+            <text x="420" y="206" text-anchor="end" class="sv-mut" font-size="9.5">RETURNED · 07:31</text>
+            <path d="M40 226 V266" stroke="#E9E3D3" stroke-width="1.5"/>
+            <g fill="none" stroke="#E9E3D3" stroke-width="1.5">
+              <path class="arc"    d="M49 233 A16 16 0 0 1 49 259"/>
+              <path class="arc a2" d="M56 223 A28 28 0 0 1 56 269"/>
+              <path class="arc a3" d="M63 213 A40 40 0 0 1 63 279"/>
+            </g>
+            <text x="80" y="250" class="sv-mut" font-size="9.5">CRIB GATE</text>
+            <text x="420" y="286" text-anchor="end" font-size="10.5"><tspan class="sv-bone">17 TOOLS · </tspan><tspan class="sv-acc">100% ACCOUNTED</tspan></text>
+          </svg>
+          <figcaption>FIG.03 — TOOL CRIB · BENCH-2</figcaption>
+        </figure>
+
+        <figure class="visual" data-visual="hardware" hidden>
+          <svg viewBox="0 0 460 320" role="img" aria-label="Handheld RFID reader with read arcs">
+            <defs><pattern id="pd-d" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.1" fill="#2E2A20"/></pattern></defs>
+            <rect width="460" height="320" fill="url(#pd-d)"/>
+            <text x="40" y="72" class="sv-bone" font-size="13">WM-READER R2</text>
+            <text x="40" y="98"  class="sv-mut" font-size="9">LONG-RANGE READS</text>
+            <text x="40" y="116" class="sv-mut" font-size="9">HIGH-THROUGHPUT</text>
+            <text x="40" y="134" class="sv-mut" font-size="9">FIELD-HARDENED BUILD</text>
+            <text x="40" y="152" class="sv-mut" font-size="9">READER-AGNOSTIC</text>
+            <g transform="translate(160,66)">
+              <rect x="96" y="-14" width="16" height="12" rx="2" fill="#26221A" stroke="#E9E3D3" stroke-width="1.2"/>
+              <rect width="120" height="196" rx="14" fill="#26221A" stroke="#E9E3D3" stroke-width="1.5"/>
+              <rect x="120" y="48" width="6" height="20" rx="2" fill="#8F8875"/>
+              <rect x="120" y="76" width="6" height="14" rx="2" fill="#8F8875"/>
+              <rect x="14" y="16" width="92" height="104" rx="6" fill="#1D1A14" stroke="#E9E3D3" stroke-width="1.2"/>
+              <text x="24" y="40" class="sv-bone" font-size="9">4F.2A.91.C7</text>
+              <text x="24" y="58" class="sv-mut" font-size="8">RSSI −54 dBm</text>
+              <rect x="24" y="72" width="6" height="10" fill="#8F8875"/>
+              <rect x="33" y="68" width="6" height="14" fill="#8F8875"/>
+              <rect x="42" y="64" width="6" height="18" fill="#E8551C"/>
+              <rect x="51" y="60" width="6" height="22" fill="#E8551C"/>
+              <text x="24" y="110" class="sv-mut" font-size="7.5">BATT 84%</text>
+              <circle cx="60" cy="150" r="6" fill="none" stroke="#E9E3D3" stroke-width="1.5"/>
+              <circle cx="60" cy="150" r="1.8" fill="#E8551C"/>
+              <path d="M44 172 h8 M56 172 h8 M68 172 h8" stroke="#8F8875" stroke-width="1.5"/>
+            </g>
+            <g fill="none" stroke="#E9E3D3" stroke-width="1.5">
+              <path class="arc"    d="M274 40 A16 16 0 0 1 274 64"/>
+              <path class="arc a2" d="M285 28 A32 32 0 0 1 285 76"/>
+              <path class="arc a3" d="M295 15 A48 48 0 0 1 295 89"/>
+              <path class="arc a4" d="M305 3 A64 64 0 0 1 305 101"/>
+            </g>
+            <text x="300" y="140" class="sv-acc" font-size="9.5">DENSE-DEPTH MODE ON</text>
+            <text x="160" y="292" class="sv-mut" font-size="9.5">FIELD UNIT — CONFIG 4.2 · DOCK / CRIB / YARD PROFILES</text>
+          </svg>
+          <figcaption>FIG.04 — WM-READER R2 · FIELD UNIT</figcaption>
+        </figure>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= USE CASES (benefit-heading is a variant target) ===== -->
+  <section class="platform" id="platform">
+    <div class="wrap">
+      <p class="kicker">USE CASES</p>
+      <h2 class="benefit-title" data-dl="benefit-heading">One platform, every asset</h2>
+      <p class="section-sub">One read standard across the whole floor — the same tag event that counts your stock also checks your tools out and watches your dock.</p>
+      <div class="platform-grid">
+        <div class="ledger" aria-label="Recent asset reads">
+          <div class="ledger-row head"><span>ASSET</span><span>LAST READ</span><span class="loc">LOCATION</span><span>STATUS</span></div>
+          <div class="ledger-row"><span class="asset">PALLET-8841</span><span class="when">2s ago</span><span class="loc">DOCK-1</span><span class="status alert"><i></i>IN TRANSIT</span></div>
+          <div class="ledger-row"><span class="asset">TORQUE-WRENCH-17</span><span class="when">31s ago</span><span class="loc">CRIB-BENCH-2</span><span class="status alert"><i></i>CHECKED OUT</span></div>
+          <div class="ledger-row"><span class="asset">LAPTOP-THK-114</span><span class="when">9s ago</span><span class="loc">OFFICE-2</span><span class="status calm"><i></i>STATIONARY</span></div>
+          <div class="ledger-row"><span class="asset">FORKLIFT-02</span><span class="when">1m ago</span><span class="loc">AISLE-4</span><span class="status calm"><i></i>ACTIVE</span></div>
+          <div class="ledger-row"><span class="asset">CAGE-2210</span><span class="when">4m ago</span><span class="loc">YARD-GATE</span><span class="status alert"><i></i>IN TRANSIT</span></div>
+        </div>
+        <div class="scanlog">
+          <div class="scanlog-head"><span>LIVE READ STREAM — GATE MESH</span><span class="live">● LIVE</span></div>
+          <ul id="scan-log"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SPEC STRIP (never personalized) ==================== -->
+  <section class="specs" id="hardware">
+    <div class="wrap">
+      <div class="specs-grid">
+        <div class="spec"><span class="spec-num">Real-time</span><span class="spec-label">CONTINUOUS ASSET VISIBILITY</span></div>
+        <div class="spec"><span class="spec-num">Open</span><span class="spec-label">READER-AGNOSTIC INTEGRATION</span></div>
+        <div class="spec"><span class="spec-num">Unified</span><span class="spec-label">STOCK · TOOLS · DOCK IN ONE LEDGER</span></div>
+        <div class="spec"><span class="spec-num">UHF</span><span class="spec-label">ONE READ STANDARD, FLOOR TO YARD</span></div>
+      </div>
+      <p class="specs-note">Waymark OS is reader-agnostic — it sits on top of the fixed panels and handhelds you already run, and normalizes every read into one asset ledger. <a href="#contact">Talk to an engineer →</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="foot-cta">
+      <h3>Put a signal on everything.</h3>
+      <a class="btn btn-primary" href="#overview"><span class="btn-label">Book a Demo</span><span class="arr">→</span></a>
+    </div>
+    <div class="foot-base">
+      <span>© 2025 WAYMARK SYSTEMS</span>
+      <span>RFID FOR OPERATIONS TEAMS</span>
+      <span><a href="#platform">PLATFORM</a><a href="#hardware">HARDWARE</a><a href="#overview">TOP ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- THE personalization layer — the production deliverable. -->
+<script src="./dynamic-landing.js" defer></script>
+
+<script>
+/* Static-page ambience only: the live read-stream ticker.
+   Part of the existing page; unrelated to personalization. */
+(function () {
+  var list = document.getElementById('scan-log');
+  if (!list) return;
+  var GATES = ['GATE-1','GATE-2','GATE-3','DOCK-1','AISLE-4','YARD-GATE'];
+  var pick = function (a) { return a[Math.floor(Math.random() * a.length)]; };
+  function epc() { var h='0123456789ABCDEF', s=''; for (var i=0;i<8;i++) s+=h[Math.floor(Math.random()*16)]; return s.match(/../g).join('.'); }
+  function addRow(ageSec, fresh) {
+    var li = document.createElement('li'); if (fresh) li.className = 'fresh';
+    [[ 't', new Date(Date.now()-ageSec*1000).toTimeString().slice(0,8) ],
+     [ 'epc', epc() ], [ 'gate', '→ '+pick(GATES) ], [ 'ok', 'OK' ]].forEach(function (c) {
+      var s = document.createElement('span'); s.className = c[0]; s.textContent = c[1]; li.appendChild(s);
+    });
+    list.insertBefore(li, list.firstChild);
+    while (list.children.length > 7) list.removeChild(list.lastChild);
+  }
+  for (var i = 6; i >= 0; i--) addRow(i * 7 + 3, false);
+  setInterval(function () { if (!document.hidden) addRow(0, true); }, 2400);
+})();
+</script>
+</body>
+</html>

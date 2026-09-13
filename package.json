@@ -1,0 +1,11 @@
+{
+  "name": "zephra-dynamic-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "URL-driven landing page personalization layer — Zephra AI technical evaluation",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "test": "node --test tests/dynamic-landing.test.js",
+    "start": "python3 -m http.server 3000"
+  }
+}
