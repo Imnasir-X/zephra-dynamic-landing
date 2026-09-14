@@ -262,19 +262,39 @@ changes which variant is selected. Enable by URL only — no build flag.
 - Ship a strict CSP (`script-src 'self'`) — the layer already complies.
 - Optional, opt-in variant-attribution hook (an event, not a tracker).
 
+## Demo video & screenshots
+
+**[▶ Watch the narrated demo video](./docs/demo-video-narrated.mp4)** (5 min 57 s, 1080p, English narration)
+
+The video walks through: the original page → each required variation (Inventory, Tool Tracking, RFID Hardware, the Meta ad example) → fail-open with unknown/removed context → debug mode → a code walkthrough of `VARIANTS`, `parseContext()`, `detectVariant()` and the restore-first `runPipeline()` → the full `npm test` suite passing. Every frame shows the exact URL that produced it, and each scenario was programmatically assert-verified during capture (the rendered headline was read back from the live DOM and checked against the expected variant copy).
+
+Sample frames (full set in [`docs/`](./docs)):
+
+| | |
+|---|---|
+| ![Original page](./docs/shot-base.png) | ![Inventory variation](./docs/shot-inventory.png) |
+| **Original page — no context** | **Inventory variation** |
+| ![Tool Tracking variation](./docs/shot-tools.png) | ![RFID Hardware variation](./docs/shot-hardware.png) |
+| **Tool Tracking variation** | **RFID Hardware variation** |
+| ![Meta ad](./docs/shot-meta.png) | ![Debug mode](./docs/shot-debug.png) |
+| **Meta ad → same Tools variation** | **Debug mode — outlines + pipeline log** |
+
+---
+
 ## Demo video outline
 
 Record with the browser address bar visible throughout, on `index.html`
-(localhost), to show personalization comes from URL context:
+(localhost), to show personalization comes from URL context. The published
+video follows this exact flow:
 
 1. `00:00` — original page, no parameters.
-2. `00:20` — `?source=google&keyword=rfid-inventory-tracking` → Inventory variation.
-3. `00:35` — `?source=google&keyword=rfid-tool-tracking` → Tool Tracking variation.
-4. `00:50` — `?source=google&keyword=rfid-reader` → RFID Hardware variation.
-5. `01:05` — `?source=meta&ad=stop-losing-tools` → Tool Tracking (Meta ad example).
-6. `01:20` — `?keyword=random-value` → original content preserved.
-7. `01:30` — remove parameters → pristine original restored.
-8. `01:40` — `?debug=true` → pipeline log + outlined targets.
-9. `01:55` — `npm test` passing; briefly map tests to the required scenarios.
-10. `02:15` — code walkthrough: `parseContext()`, `detectVariant()`, `VARIANTS`,
+2. `00:26` — `?source=google&keyword=rfid-inventory-tracking` → Inventory variation.
+3. `01:06` — `?source=google&keyword=rfid-tool-tracking` → Tool Tracking variation.
+4. `01:44` — `?source=google&keyword=rfid-reader` → RFID Hardware variation.
+5. `02:04` — `?source=meta&ad=stop-losing-tools` → Tool Tracking (Meta ad example).
+6. `02:26` — `?keyword=random-value` → original content preserved.
+7. `02:46` — remove parameters → pristine original restored.
+8. `03:01` — `?debug=true` → pipeline log + outlined targets.
+9. `03:25` — code walkthrough: `VARIANTS`, `parseContext()`, `detectVariant()`,
     `applyVariant()`, restoration/fail-open logic.
+10. `04:51` — `npm test` passing.
