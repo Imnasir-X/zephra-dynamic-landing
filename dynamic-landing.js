@@ -150,7 +150,7 @@
     var params;
     try {
       params = new URLSearchParams(search || '');
-    } catch (e) {
+    } catch {
       return { raw: raw, context: context, warnings: ['query unparseable — fail open'] };
     }
     CONFIG.trackedParams.forEach(function (p) {
@@ -346,12 +346,12 @@
       if (typeof window !== 'undefined' && typeof window.CustomEvent === 'function') {
         window.dispatchEvent(new CustomEvent('dl:debug', { detail: result }));
       }
-    } catch (e) { /* non-fatal */ }
+    } catch { /* non-fatal */ }
   }
 
   function isDebugEnabled(search) {
     try { return new URLSearchParams(search || '').get('debug') === 'true'; }
-    catch (e) { return false; }
+    catch { return false; }
   }
 
   /* =========================================================================

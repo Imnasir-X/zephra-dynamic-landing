@@ -83,12 +83,12 @@
   var currentQuery = window.location.search;
 
   var isDebug = function (q) {
-    try { return new URLSearchParams(q || '').get('debug') === 'true'; } catch (e) { return false; }
+    try { return new URLSearchParams(q || '').get('debug') === 'true'; } catch { return false; }
   };
 
   function setScenario(q) {
     currentQuery = q;
-    try { history.replaceState(null, '', q || window.location.pathname); } catch (e) { /* file:// — pipeline still runs */ }
+    try { history.replaceState(null, '', q || window.location.pathname); } catch { /* file:// — pipeline still runs */ }
     render(DL.personalize(currentQuery, { debug: isDebug(currentQuery) }));
   }
 
@@ -141,7 +141,7 @@
   qInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') aside.querySelector('#dl-q-apply').click(); });
 
   dbgBox.addEventListener('change', function () {
-    var params; try { params = new URLSearchParams(currentQuery); } catch (e) { params = new URLSearchParams(); }
+    var params; try { params = new URLSearchParams(currentQuery); } catch { params = new URLSearchParams(); }
     if (dbgBox.checked) params.set('debug', 'true'); else params.delete('debug');
     var s = params.toString();
     setScenario(s ? '?' + s : '');
