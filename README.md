@@ -1,5 +1,57 @@
-# Dynamic Landing Page Personalization
-**Zephra AI — AI/ML Intern technical evaluation**
+# Zephra Dynamic Landing
+
+[![CI](https://github.com/Imnasir-X/zephra-dynamic-landing/actions/workflows/ci.yml/badge.svg)](https://github.com/Imnasir-X/zephra-dynamic-landing/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+![Node](https://img.shields.io/badge/node-%3E%3D20-339933)
+![Dependencies](https://img.shields.io/badge/runtime%20dependencies-0-brightgreen)
+
+A deterministic, fail-open personalization layer that adapts an existing landing page to the visitor intent carried in its URL, without a backend, a framework, or AI.
+
+Built by Nasir Khan as a technical evaluation for Zephra AI (AI/ML Intern role).
+
+![Tool Tracking variation of the landing page](./docs/shot-tools.png)
+
+## Features
+
+- Reads four tracked URL parameters (`keyword`, `ad`, `campaign`, `source`) and maps them to one of three pre-approved variants: Inventory, Tool Tracking or RFID Hardware.
+- Two-tier classification: exact-phrase allow-list first, then single-word lexicon scoring for free-form keywords.
+- Changes exactly five `data-dl` targets (headline, description, primary CTA, benefit heading, hero visual) and nothing else.
+- Fail-open by design: unknown, missing or hostile input leaves the original page untouched, and the page renders identically with JavaScript disabled.
+- Never renders URL text: all copy comes from a static config and is written with `textContent` or the `hidden` attribute.
+- `?debug=true` logs each pipeline stage and outlines the changed targets without affecting variant selection.
+- Unit tests on Node's built-in runner plus a headless-Chromium run of the in-browser DOM suite.
+
+## Tech stack
+
+- Vanilla JavaScript (ES2019), HTML and CSS; zero runtime dependencies
+- Node.js 20+ built-in test runner (`node --test`)
+- ESLint 9 (flat config)
+- Playwright (Chromium) for the browser test run
+- GitHub Actions CI on Node 20 and 22
+
+## Quick start
+
+```bash
+git clone https://github.com/Imnasir-X/zephra-dynamic-landing.git
+cd zephra-dynamic-landing
+npm start                       # python3 -m http.server 3000, or: npx serve .
+```
+
+Open <http://localhost:3000/index.html?source=google&keyword=rfid-tool-tracking> to see the Tool Tracking variation, or <http://localhost:3000/demo.html> for the evaluation console.
+
+To run the checks:
+
+```bash
+npm ci
+npm run lint
+npm test                        # unit tests, no browser needed
+npx playwright install chromium # once
+npm run test:browser            # in-browser DOM suite in headless Chromium
+```
+
+---
+
+## Background
 
 A deterministic, fail-open personalization layer for an **existing** landing page:
 read URL context → classify visitor intent → apply one approved variant to exactly
@@ -13,8 +65,6 @@ five DOM elements. No backend, no AI, no framework, no duplicated pages.
 > only (the harness is `index.html` plus exactly one `<script>` tag; all console
 > UI is injected at runtime). The production solution works entirely from the
 > browser address bar on `index.html`.
-
----
 
 ## 1. Problem understanding
 
@@ -74,8 +124,13 @@ zephra-dynamic-landing/
 ├── demo.html                      ← index.html + exactly one <script> tag
 ├── demo-console.js                ← evaluation harness (loaded ONLY by demo.html)
 ├── tests/
-│   └── dynamic-landing.test.js    ← npm test (node --test, zero deps)
+│   ├── dynamic-landing.test.js    ← npm test (node --test, zero deps)
+│   └── browser.test.js            ← npm run test:browser (headless Chromium)
+├── docs/                          ← screenshots and narrated demo video
+├── .github/workflows/ci.yml       ← lint + tests on Node 20 and 22
+├── eslint.config.js
 ├── package.json
+├── LICENSE
 └── README.md
 ```
 
@@ -200,7 +255,7 @@ In production the brief's `/product` path maps to `index.html`; the layer reads
 ## 12. Running tests
 
 ```bash
-npm test          # Node ≥18 built-in runner, zero dependencies
+npm test          # Node 20+ built-in runner, zero dependencies
 ```
 
 Covers: the required scenario table (inventory/tool/hardware keywords, Meta/ad
@@ -210,7 +265,10 @@ invalid/untracked parameters, hostile input, and config-integrity guards (every
 phrase maps to a declared variant; lexicon entries are single words; `debug` is
 untracked). DOM-level behaviour (switching variants, restoration to pristine DOM,
 only approved targets changing, hostile payload inert) is covered by the
-in-browser suite in `demo.html`. Syntax checks: `node --check dynamic-landing.js`.
+in-browser suite in `demo.html`, which `npm run test:browser` runs in headless
+Chromium (it also checks the URL-driven variants on `index.html` and that the
+page does not scroll horizontally on a 390 px phone viewport). Syntax checks:
+`npm run check`. Lint: `npm run lint`.
 
 ## 13. Debug mode
 
@@ -258,13 +316,12 @@ changes which variant is selected. Enable by URL only — no build flag.
 
 ## 17. Possible future improvements
 
-- Port DOM tests to jsdom for headless CI; wire up GitHub Actions.
 - Ship a strict CSP (`script-src 'self'`) — the layer already complies.
 - Optional, opt-in variant-attribution hook (an event, not a tracker).
 
 ## Demo video & screenshots
 
-**[▶ Watch the narrated demo video](./docs/demo-video-narrated.mp4)** (5 min 57 s, 1080p, English narration)
+**[Watch the narrated demo video](./docs/demo-video-narrated.mp4)** (5 min 57 s, 1080p, English narration)
 
 The video walks through: the original page → each required variation (Inventory, Tool Tracking, RFID Hardware, the Meta ad example) → fail-open with unknown/removed context → debug mode → a code walkthrough of `VARIANTS`, `parseContext()`, `detectVariant()` and the restore-first `runPipeline()` → the full `npm test` suite passing. Every frame shows the exact URL that produced it, and each scenario was programmatically assert-verified during capture (the rendered headline was read back from the live DOM and checked against the expected variant copy).
 
@@ -298,3 +355,7 @@ video follows this exact flow:
 9. `03:25` — code walkthrough: `VARIANTS`, `parseContext()`, `detectVariant()`,
     `applyVariant()`, restoration/fail-open logic.
 10. `04:51` — `npm test` passing.
+
+## License
+
+Released under the [MIT License](./LICENSE). Copyright (c) 2026 Nasir Khan.

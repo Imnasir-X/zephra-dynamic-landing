@@ -2,10 +2,28 @@
   "name": "zephra-dynamic-landing",
   "version": "1.0.0",
   "private": true,
-  "description": "URL-driven landing page personalization layer — Zephra AI technical evaluation",
-  "engines": { "node": ">=18" },
+  "description": "Deterministic, fail-open, URL-driven personalization layer for an existing landing page",
+  "license": "MIT",
+  "author": "Nasir Khan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imnasir-X/zephra-dynamic-landing.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
+    "start": "python3 -m http.server 3000",
+    "lint": "eslint .",
+    "check": "node --check dynamic-landing.js && node --check demo-console.js",
     "test": "node --test tests/dynamic-landing.test.js",
-    "start": "python3 -m http.server 3000"
+    "test:browser": "node --test tests/browser.test.js",
+    "test:all": "npm run lint && npm run check && npm test && npm run test:browser"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "globals": "^17.14.0",
+    "playwright": "^1.65.0"
   }
 }

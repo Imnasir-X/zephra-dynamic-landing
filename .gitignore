@@ -19,3 +19,7 @@ dist/
 # test/tooling artifacts
 .nyc_output/
 coverage/
+
+# Playwright
+test-results/
+playwright-report/
